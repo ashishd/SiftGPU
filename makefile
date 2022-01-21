@@ -2,22 +2,22 @@
 #    SiftGPU congiruation:  CUDA, SSE, TIMING  
 #################################################################
 #enable siftgpu server
-siftgpu_enable_server = 0
+siftgpu_enable_server = 1
 #enable OpenCL-based SiftGPU? not finished yet; testing purpose
 siftgpu_enable_opencl = 0
 #------------------------------------------------------------------------------------------------
 # enable CUDA-based SiftGPU?
 simple_find_cuda = $(shell locate libcudart.so)
 ifneq ($(simple_find_cuda), )
- 	siftgpu_enable_cuda = 0
+ 	siftgpu_enable_cuda = 1
 else
-	siftgpu_enable_cuda = 0
+	siftgpu_enable_cuda = 1
 endif
 
-CUDA_INSTALL_PATH = /usr/local/cuda
+CUDA_INSTALL_PATH = /usr/local/cuda-11.6
 #change  additional  settings, like SM version here if it is not 1.0 (eg. -arch sm_13 for GTX280)
-#siftgpu_cuda_options = -Xopencc -OPT:unroll_size=200000
-#siftgpu_cuda_options = -arch sm_10
+siftgpu_cuda_options = -Xopencc -OPT:unroll_size=200000
+siftgpu_cuda_options = -arch sm_70
 #--------------------------------------------------------------------------------------------------
 # enable SSE optimization for GL-based implementations
 siftgpu_enable_sse = 1
