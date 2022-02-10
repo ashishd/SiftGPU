@@ -51,7 +51,7 @@ Thumbs.db
 # Directories #
 ###############
 
-bin/
-build/
-include/
-lib/
+#bin/
+#build/
+#include/
+#lib/
